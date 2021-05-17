@@ -54,7 +54,8 @@ jobs:
           args: --acl public-read --delete
         env:
           # note: use IAM role with limited role for below access-key-id and secret-access-key
+          AWS_S3_BUCKET: ${{ secrets.AWS_PRODUCTION_BUCKET_NAME }} # S3 bucket name
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }} # Access Key ID
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}} # Access Secret Key
-          AWS_S3_BUCKET: ${{ secrets.AWS_PRODUCTION_BUCKET_NAME }} # S3 bucket name
+          AWS_REGION: 'us-east-1'
           SOURCE_DIR: "dist/simple-angular-app" # build folder
