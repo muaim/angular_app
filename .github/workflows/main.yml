@@ -21,7 +21,7 @@ jobs:
     # In our case, we are only running it for Node v12.*. but you can multiple entries in that array.
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.16.0]
       
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -30,6 +30,8 @@ jobs:
       # As you can see below we are using matrix.node-version => it means it will execute for all possible combinations
       # provided matrix keys array(in our case only one kye => node-version)
       - uses: actions/checkout@master
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1.4.3
         with:
